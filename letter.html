@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Secret Letter ❤️</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+
+height:100vh;
+overflow:hidden;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:
+radial-gradient(circle,#8b1a5b,#250033);
+
+font-family:'Segoe UI',sans-serif;
+
+color:#4b1740;
+
+}
+
+
+/* Letter */
+
+.letter{
+
+position:relative;
+
+width:75%;
+max-width:700px;
+
+padding:45px;
+
+background:
+linear-gradient(#fff5fa,#ffe1ef);
+
+border-radius:25px;
+
+box-shadow:
+0 0 30px pink,
+0 0 80px rgba(255,100,180,0.5);
+
+text-align:center;
+
+animation:open 2s ease;
+
+z-index:5;
+
+}
+
+
+
+@keyframes open{
+
+from{
+
+transform:scale(0) rotate(-10deg);
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1) rotate(0);
+opacity:1;
+
+}
+
+}
+
+
+
+h1{
+
+font-size:45px;
+
+color:#d63384;
+
+text-shadow:0 0 15px pink;
+
+margin-bottom:20px;
+
+}
+
+
+
+p{
+
+font-size:22px;
+
+line-height:1.8;
+
+}
+
+
+
+.big-heart{
+
+font-size:80px;
+
+animation:heart 1s infinite alternate;
+
+}
+
+
+
+@keyframes heart{
+
+from{
+transform:scale(1);
+}
+
+to{
+transform:scale(1.25);
+}
+
+}
+
+
+
+/* Rose petals */
+
+.petal{
+
+position:absolute;
+
+top:-50px;
+
+font-size:30px;
+
+animation:fall linear infinite;
+
+}
+
+
+
+@keyframes fall{
+
+0%{
+
+transform:translateY(-50px) rotate(0deg);
+
+}
+
+100%{
+
+transform:translateY(110vh) rotate(360deg);
+
+}
+
+}
+
+
+
+/* Stars */
+
+.star{
+
+position:absolute;
+
+color:white;
+
+font-size:20px;
+
+animation:twinkle 2s infinite alternate;
+
+}
+
+
+
+@keyframes twinkle{
+
+from{
+opacity:0.2;
+}
+
+to{
+opacity:1;
+}
+
+}
+
+
+
+/* Signature */
+
+.signature{
+
+margin-top:25px;
+
+font-size:25px;
+
+font-weight:bold;
+
+color:#d63384;
+
+font-style:italic;
+
+}
+
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<div class="letter">
+
+
+<div class="big-heart">
+❤️
+</div>
+
+
+<h1>
+My Secret Letter 💌
+</h1>
+
+
+<p id="message"></p>
+
+
+<div class="signature">
+Forever Special To Me ❤️
+</div>
+
+
+</div>
+
+
+
+<script>
+
+
+// Typing effect
+
+let text = `
+
+Dear My Love,
+
+Happy Birthday to the most amazing person in my life.
+
+You make my ordinary days feel special.
+Your smile brings happiness, and your kindness inspires me.
+
+Thank you for every beautiful memory,
+every laugh, and every moment we share.
+
+I hope your future is filled with success,
+love, dreams, and endless happiness.
+
+Never forget how special you are to me.
+
+❤️ Happy Birthday ❤️
+
+`;
+
+
+let i=0;
+
+
+function typing(){
+
+if(i < text.length){
+
+document.getElementById("message").innerHTML += 
+text.charAt(i);
+
+i++;
+
+setTimeout(typing,40);
+
+}
+
+}
+
+typing();
+
+
+
+// Falling roses
+
+function createPetal(){
+
+let petal=document.createElement("div");
+
+petal.className="petal";
+
+petal.innerHTML="🌹";
+
+petal.style.left=Math.random()*100+"vw";
+
+petal.style.animationDuration=
+(5+Math.random()*5)+"s";
+
+
+document.body.appendChild(petal);
+
+
+setTimeout(()=>{
+
+petal.remove();
+
+},10000);
+
+}
+
+
+setInterval(createPetal,400);
+
+
+
+
+// Stars
+
+function createStar(){
+
+let star=document.createElement("div");
+
+star.className="star";
+
+star.innerHTML="✨";
+
+star.style.left=Math.random()*100+"vw";
+
+star.style.top=Math.random()*100+"vh";
+
+
+document.body.appendChild(star);
+
+
+setTimeout(()=>{
+
+star.remove();
+
+},3000);
+
+
+}
+
+
+setInterval(createStar,500);
+
+
+
+</script>
+
+
+</body>
+
+</html>
